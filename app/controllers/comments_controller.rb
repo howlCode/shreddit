@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
   end
 
   def new 
-    @comment = current_user.posts.comments.build
+    @comment = current_user.comments.build
   end
 
   def edit
@@ -52,7 +52,7 @@ class CommentsController < ApplicationController
     end
 
     def load_subshreddit
-      @subshreddit = Post.subshreddit.where(id: params[:subshreddit_id])
+      @subshreddit = Subshreddit.where(id: params[:subshreddit_id])
     end
 
     def comments_params
