@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shreddit</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  
+  <body>
+    <div id="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <%= link_to posts_path do %>
+            <h1 class="display-4 handy">Shreddit!</h1>
+          <% end %>
+          <p class="lead">Your source for metal discussion!</p>
+        </div>
+      </div>
+    </div>
+    <%= yield %>
+  </body>
+</html>
