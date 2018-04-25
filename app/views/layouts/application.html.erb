@@ -18,6 +18,11 @@
             <h1 class="display-4 handy">Shreddit!</h1>
           <% end %>
           <p class="lead">Your source for metal discussion!</p>
+          <% if !user_signed_in? %>
+            <%= link_to user_session_path %>
+          <% else %>
+            <%= button_to "New Post", new_post_path, class: "btn btn-success" %>
+          <% end %>
         </div>
       </div>
     </div>
