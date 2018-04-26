@@ -20,8 +20,10 @@
           <p class="lead">Your source for metal discussion!</p>
           <% if !user_signed_in? %>
             <%= link_to user_session_path %>
-          <% else %>
-            <%= button_to "New Post", new_post_path, class: "btn btn-success" %>
+          <% elsif user_signed_in? %>
+            <small>Signed in as: <%= link_to edit_user_registration_path(current_user) do %>
+                                    <%= current_user.email %></small>
+                                    <% end %>
           <% end %>
         </div>
       </div>

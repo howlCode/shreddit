@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
   def show
   end
 
-  def new 
+  def new
     @comment = current_user.comments.build
   end
 
@@ -19,10 +19,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = @post.comments.build(comment_params)
-
+    @comment = current_user.comments.build(comment_params)
     if @comment.save
-      redirect_to comments_path
+      redirect_to @post
     else
       render 'new'
     end
@@ -30,7 +29,7 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      redirect_to comments_path
+      redirect_to @post
     else
       render 'edit'
     end
@@ -48,15 +47,15 @@ class CommentsController < ApplicationController
     end
 
     def load_post
-    	@post = Post.where(id: params[:post_id])
+    	@post = Post.find(params[:post_id])
     end
 
     def load_subshreddit
       @subshreddit = Subshreddit.where(id: params[:subshreddit_id])
     end
 
-    def comments_params
-      params.require(:comment).permit(:body)
+    def comment_params
+      params.require(:comment).permit(:body).merge({post_id: params[:post_id]})
     end
 
 end

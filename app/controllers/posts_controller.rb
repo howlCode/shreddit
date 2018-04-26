@@ -11,8 +11,8 @@ class PostsController < ApplicationController
     @comments = @post.comments
   end
 
-  def new 
-    @post = current_user.subshreddits.posts.build
+  def new
+    @post = current_user.posts.build
   end
 
   def edit

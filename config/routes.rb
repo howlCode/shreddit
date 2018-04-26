@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   root to: 'posts#index'
 
-  resources :subshreddits 
-  resources :posts do
+  resources :subshreddits
+
+	resources :posts do
 		resources :comments
 	end
 

@@ -1,0 +1,20 @@
+<div class="container">
+	<form id="new-post-form">
+		<div class="form-group">
+			<label for="subshreddit">Subshreddit you are posting to: </label>
+			<select class="form-control" id="subshreddit" aria-describedby="subshredditHelp">
+				<% @subshreddits.each do |subshreddit| %>
+					<option id=<%= subshreddit.id %>><%= subshreddit.name %></option>
+				<% end %>
+			</select>
+		<div class="form-group">
+			<label for="title">Title</label>
+			<input type="text" class="form-control" id="title" aria-describedby="titleHelp" placeholder="Post title">
+		</div>
+		<div class="form-group">
+			<label for="body">Body</label>
+			<textarea class="form-control" id="body" placeholder="Content" rows="15"></textarea>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
