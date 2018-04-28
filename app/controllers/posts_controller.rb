@@ -12,6 +12,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @subshreddits = Subshreddit.all
     @post = current_user.posts.build
   end
 

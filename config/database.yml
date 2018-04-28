@@ -30,7 +30,7 @@ production:
   database: shreddit
   username: postgres
   password:
-  encoding: unicode
+  encoding: UTF8
   pool: 5
 
 development:
@@ -39,7 +39,7 @@ development:
   database: shreddit_development
   username: postgres
   password: postgres
-  encoding: SQL_ASCII
+  encoding: UTF8
   pool: 5
 
 test:
@@ -48,5 +48,5 @@ test:
   database: shreddit_testing
   username: postgres
   password: postgres
-  encoding: SQL_ASCII
+  encoding: UTF8
   pool: 5

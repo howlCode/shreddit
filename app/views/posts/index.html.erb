@@ -1,6 +1,10 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm">
+			<ul class="list-inline">
+				<li class="list-inline-item"><%= link_to "Create a New Subreddit", new_subshreddit_path, class: "btn btn-success" %></li>
+				<li class="list-inline-item"><%= link_to "Create Post", new_post_path, class: "btn btn-primary" %></li>
+			</ul>
 			<div id="main-posts">
 				<% @posts.each do |post| %>
 				<ul class="list-group list-group-flush">

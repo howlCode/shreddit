@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :subshreddits
 
 	resources :posts do
-		resources :comments
+	resources :comments
 	end
 
 end
