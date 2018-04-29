@@ -21,7 +21,7 @@ class SubshredditsController < ApplicationController
     @subshreddit = current_user.subshreddits.build(subshreddit_params)
 
     if @subshreddit.save
-      redirect_to subshreddits_path
+      redirect_to root_path
     else
       render 'new'
     end

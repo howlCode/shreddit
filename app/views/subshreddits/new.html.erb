@@ -1,0 +1,29 @@
+<div class="container">
+
+  <%= form_for [@subshreddit] do |form| %>
+
+    <% if @subshreddit.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@subshreddit.errors.count, "Error") %>
+          prohibited this subshreddit from being created:
+        </h2>
+        <% @subshreddit.errors.full_messages.each do |msg| %>
+          <small><%= msg %></small>
+        <% end %>
+      </div>
+    <% end %>
+    <h2>New Subshreddit Form</h2>
+
+    <div class="form-group">
+      <%= label_tag(:name, "Subshreddit Name") %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.submit "Submit", class: "btn btn-success" %>
+    </div>
+
+    <% end %>
+
+</div>
