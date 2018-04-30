@@ -11,7 +11,7 @@ class SubshredditsController < ApplicationController
   end
 
   def new
-    @subshreddit = current_user.subshreddits.build
+    @subshreddit = current_user.subshreddits.build if user_signed_in?
   end
 
   def edit
