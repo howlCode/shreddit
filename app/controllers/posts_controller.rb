@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 
   def new
     @subshreddits = Subshreddit.all
-    @post = current_user.posts.build if user_signed_in?
+    @post = current_user.posts.build
   end
 
   def edit

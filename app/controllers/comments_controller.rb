@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @comment = current_user.comments.build if user_signed_in?
+    @comment = current_user.comments.build
   end
 
   def edit
