@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
-
+  
   root to: 'posts#index'
+
+  devise_for :users
+  resources :users do
+  	resource :profile
+	end
 
   resources :subshreddits
 
 	resources :posts do
-	resources :comments
+		resources :comments
 	end
 
 end

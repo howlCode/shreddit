@@ -10,7 +10,7 @@
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item list-group-item-action handy">
 						<%= link_to post_path(post), class: "text-dark" do %>
-							<h2><%= post.title %></h2><small class="text-success text-dark"> submitted <%= post.posted_time %> by <%= post.user.email %> to /s/<span><%= link_to post.subshreddit.name, subshreddit_path(post.subshreddit), class: "text-danger" %></span> -> </small>
+							<h2><%= post.title %></h2><small class="text-success text-dark"> submitted <%= post.posted_time %> by <%= link_to post.user.nick, user_profile_path(post.user) %> to /s/<span><%= link_to post.subshreddit.name, subshreddit_path(post.subshreddit), class: "text-danger" %></span> -> </small>
 							<%= link_to post_path(post) do %>
 								<span class="badge badge-warning badge-pill"><%= post.comment_count %></span>
 							<% end %>
