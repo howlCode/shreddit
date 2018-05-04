@@ -1,6 +1,24 @@
 
 @import "bootstrap";
 
+body {
+  background-color: #312E2E;
+}
+
+a:link {
+  text-decoration: none !important;
+  color: none;
+}
+
+.handy {
+  text-decoration: none;
+}
+
 .handy:hover {
 	cursor: pointer;
+  text-decoration: none;
+}
+
+.post-list-item {
+  color: #19D3C4;
 }

@@ -9,8 +9,8 @@
 				<% @posts.each do |post| %>
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item list-group-item-action handy">
-						<%= link_to post_path(post) do%>
-							<h2><%= post.title %></h2><small> submitted <%= post.posted_time %> by <%= post.user.email %> to s/<%= post.subshreddit.name %></small>
+						<%= link_to post_path(post), class: "text-dark" do %>
+							<h2><%= post.title %></h2><small class="text-success"> submitted <%= post.posted_time %> by <%= post.user.email %> to s/<%= post.subshreddit.name %></small>
 							<span class="badge badge-primary badge-pill"><%= post.comment_count %></span>
 						<% end %>
 				  </li>
