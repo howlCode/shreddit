@@ -9,30 +9,32 @@
   </head>
   
   <body>
-    <div id="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <div class="jumbotron jumbotron-fluid">
+    <!-- <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p> -->
+    <%= render 'partials/header' %>
+    <div id="container" class="shade">
+      <div class="jumbotron jumbotron-fluid splash">
         <div class="container">
           <%= link_to posts_path do %>
-            <h1 class="display-4 handy text-dark">Shreddit!</h1>
+            <h1 class="display-4 handy text-danger">Shreddit!</h1>
           <% end %>
-          <p class="lead">Your source for metal discussion!</p>
+          <p class="lead text-light">Your source for metal discussion!</p>
           <% if !user_signed_in? %>
             <%= link_to user_session_path do %>
               <button class="btn btn-primary">Sign In</button>
             <% end %>
           <% elsif user_signed_in? %>
-            <p>Signed in as: <%= link_to edit_user_registration_path(current_user) do %>
+            <p class="text-light">Signed in as: <%= link_to edit_user_registration_path(current_user) do %>
                                     <%= current_user.email %></p>
                                     <% end %>
               <%= link_to destroy_user_session_path, :method => :delete do %>
-                <button class="btn btn-danger">Sign Out</button>
+                <button class="btn btn-info">Sign Out</button>
               <% end %>
           <% end %>
         </div>
       </div>
     </div>
     <%= yield %>
+    <%= render 'partials/footer' %>
   </body>
 </html>

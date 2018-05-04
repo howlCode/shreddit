@@ -12,7 +12,6 @@ class PostsController < ApplicationController
   end
 
   def new
-    @subshreddits = Subshreddit.all
     @post = current_user.posts.build
   end
 
@@ -20,7 +19,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    @subshreddits = Subshreddit.all
     @subshreddit = Subshreddit.find(params[:post][:subshreddit_id])
     @post = current_user.posts.build(post_params)
 

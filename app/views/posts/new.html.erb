@@ -9,25 +9,25 @@
           prohibited this post from being submitted:
         </h2>
         <% @post.errors.full_messages.each do |msg| %>
-          <p><%= msg %></p>
+          <p class="text-light"><%= msg %></p>
         <% end %>
       </div>
     <% end %>
     
-		<h2>New Post</h2>
+		<h2 class="text-light">New Post</h2>
     <br />
     <div class="form-group">
-    	<p>Subshreddit you are posting to: </p>
+    	<p class="text-light">Subshreddit you are posting to: </p>
     	<%= form.collection_select :subshreddit_id, @subshreddits, :id, :name, {},{class: "form-control"} %>  
     </div>
 
     <div class="form-group">
-    	<%= label_tag(:title, "Title") %>
+    	<%= label_tag(:title, "Title", class: "text-light") %>
       <%= form.text_field :title, class: "form-control" %>
     </div>
 		
 		<div class="form-group">
-			<%= label_tag(:body, "Content") %>
+			<%= label_tag(:body, "Content", class: "text-light") %>
 			<%= form.text_area :body, class: "form-control" %>
 		</div>
 

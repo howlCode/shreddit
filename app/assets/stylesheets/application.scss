@@ -10,6 +10,10 @@ a:link {
   color: none;
 }
 
+.shade {
+	opacity: 0.8;
+}
+
 .handy {
   text-decoration: none;
 }
@@ -17,6 +21,12 @@ a:link {
 .handy:hover {
 	cursor: pointer;
   text-decoration: none;
+}
+
+.splash {
+	background: url('horns.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .post-list-item {

@@ -3,7 +3,6 @@ class SubshredditsController < ApplicationController
   before_action :set_subshreddit, only: [:show, :edit, :update, :destroy]
 
   def index
-    @subshreddits = Subshreddit.all
   end
 
   def show
