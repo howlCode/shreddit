@@ -12,23 +12,23 @@
     <!-- <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p> -->
     <%= render 'partials/header' %>
-    <div id="container" class="shade">
-      <div class="jumbotron jumbotron-fluid splash">
+    <div id="container">
+      <div class="jumbotron jumbotron-fluid">
         <div class="container">
           <%= link_to posts_path do %>
-            <h1 class="display-4 handy text-danger">Shreddit!</h1>
+            <h1 class="display-4 handy text-light">Shreddit!</h1>
           <% end %>
           <p class="lead text-light">Your source for metal discussion!</p>
           <% if !user_signed_in? %>
             <%= link_to user_session_path do %>
-              <button class="btn btn-primary">Sign In</button>
+              <button class="btn btn-warning">Sign In</button>
             <% end %>
           <% elsif user_signed_in? %>
-            <p class="text-light">Signed in as: <%= link_to edit_user_registration_path(current_user) do %>
+            <p class="text-light">Signed in as: <%= link_to edit_user_registration_path(current_user), class: "text-danger" do %>
                                     <%= current_user.email %></p>
                                     <% end %>
               <%= link_to destroy_user_session_path, :method => :delete do %>
-                <button class="btn btn-info">Sign Out</button>
+                <button class="btn btn-light">Sign Out</button>
               <% end %>
           <% end %>
         </div>

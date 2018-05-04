@@ -10,10 +10,6 @@ a:link {
   color: none;
 }
 
-.shade {
-	opacity: 0.8;
-}
-
 .handy {
   text-decoration: none;
 }
@@ -23,12 +19,12 @@ a:link {
   text-decoration: none;
 }
 
-.splash {
-	background: url('horns.jpg');
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
 .post-list-item {
   color: #19D3C4;
+}
+
+.jumbotron {
+  background: url('horns.jpg') no-repeat;
+  background-size: cover;
+  border: 1px dotted grey;
 }

@@ -5,17 +5,23 @@
 		</div>
 		<div class="card-body">
 			<h2 class="card-title"><%= @post.title %></h2>
-			<p class="card-text"><%= @post.body %></p>
-			<%= link_to "Add Comment", new_post_comment_path(@post), {class: "btn btn-primary"} %>
+			<blockquote class="blockquote">
+				<p class="mb-0 lead">"<%= @post.body %>"</p>
+			</blockquote>
+			<hr class="text-warning">
+			<%= link_to "Add Comment", new_post_comment_path(@post), {class: "btn btn-warning"} %>
+			<% if @post.user == current_user %>
+				<%= link_to "Edit Post", edit_post_path(@post), {class: "btn btn-danger"} %>
+			<% end %>
 		</div>
 	</div>
-	
+	<hr class="text-warning">
 	<ul class="list-group list-group-flush">
 		<% @comments.each do |comment| %>
-		<li class="list-group-item list-group-item-action">
-			<%= comment.user.email %> <%= comment.posted_time %>
-			<p><%= comment.body %></p>
-		</li>
+			<li class="list-group-item list-group-item-action">
+				<small><%= comment.user.email %> <%= comment.posted_time %> says:</small>
+				<p class="lead">"<%= comment.body %>"</p>
+			</li>
 		<% end %>
 	</ul>
 </div>
