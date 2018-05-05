@@ -6,7 +6,7 @@
       <hr class="text-warning">
       <p class="card-text"><%= @post.body %></p>
       <hr class="text-warning">
-      <small class="text-dark"> submitted <%= @post.posted_time %> by <%= @post.user.email %> to /s/<%= link_to @post.subshreddit.name, subshreddit_path(@post.subshreddit), class: "text-danger" %></small>
+      <small class="text-dark"> submitted <%= @post.posted_time %> by <%= link_to @post.user.nick, user_profile_path(@post.user) %> to /s/<%= link_to @post.subshreddit.name, subshreddit_path(@post.subshreddit), class: "text-danger" %></small>
     </div>
   </div>
   <br />

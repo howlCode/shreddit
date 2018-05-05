@@ -12,6 +12,12 @@
         </div>
 
         <div class="form-group">
+          <%= f.label :nickname, class: "text-light" %><br />
+          <small class="text-light">Your name as it will appear on posts and comments...</small>
+          <%= f.text_field :nick, autofocus: true, autocomplete: "nickname", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
           <%= f.label :password, class: "text-light" %>
           <% if @minimum_password_length %>
           <em class="text-light">(<%= @minimum_password_length %> characters minimum)</em>

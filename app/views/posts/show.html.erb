@@ -1,25 +1,24 @@
 <div class="container">
 	<div class="card">
 		<div class="card-header">
-			<small> submitted <%= @post.posted_time %> by <%= @post.user.email %></small>
+			<small> submitted <%= @post.posted_time %> by <%= link_to @post.user.nick, user_profile_path(@post.user) %></small>
 		</div>
 		<div class="card-body">
 			<h2 class="card-title"><%= @post.title %></h2>
 			<blockquote class="blockquote">
 				<p class="mb-0 lead">"<%= @post.body %>"</p>
 			</blockquote>
-			<hr class="text-warning">
-			<%= link_to "Add Comment", new_post_comment_path(@post), {class: "btn btn-warning"} %>
+		</div>
+	</div>
+	<%= link_to "Add Comment", new_post_comment_path(@post), {class: "btn btn-warning"} %>
 			<% if @post.user == current_user %>
 				<%= link_to "Edit Post", edit_post_path(@post), {class: "btn btn-danger"} %>
 			<% end %>
-		</div>
-	</div>
 	<hr class="text-warning">
 	<ul class="list-group list-group-flush">
 		<% @comments.each do |comment| %>
 			<li class="list-group-item list-group-item-action">
-				<small><%= comment.user.email %> <%= comment.posted_time %> says:</small>
+				<small><%= comment.posted_time %> <%= link_to comment.user.nick, user_profile_path(comment.user) %> says:</small>
 				<p class="lead">"<%= comment.body %>"</p>
 			</li>
 		<% end %>

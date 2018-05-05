@@ -23,8 +23,11 @@
             <%= link_to user_session_path do %>
               <button class="btn btn-warning">Sign In</button>
             <% end %>
+            <%= link_to new_user_registration_path do %>
+              <button class="btn btn-danger">Sign Up</button>
+            <% end %>
           <% elsif user_signed_in? %>
-            <p class="text-light">Signed in as: <%= link_to edit_user_registration_path(current_user), class: "text-danger" do %>
+            <p class="text-light">Signed in as: <%= link_to user_profile_path(current_user), class: "text-danger" do %>
                                     <%= current_user.email %></p>
                                     <% end %>
               <%= link_to destroy_user_session_path, :method => :delete do %>

@@ -1,8 +1,16 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm">
-			<h1 class="text-light"><%= @user.nick %>'s Posting History</h1>
+			<% if !current_user %>
+				<h1 class="text-light"><%= @user.nick %>'s Posting History</h1>
 				<br >
+			<% elsif current_user %>
+				<h1 class="text-light">Your Profile</h1>
+				<br >
+			<% end %>
+			<ul class="list-inline">
+				<li class="list-inline-item"><%= link_to "Send a New Message", new_user_message_path, class: "btn btn-warning" %></li>
+			</ul>
 				<ul class="list-group list-group-flush">
 				<% @user.posts.each do |post| %>
 					<li class="list-group-item list-group-item-action handy">
@@ -15,6 +23,17 @@
 				  </li>
 				</ul>
 			 <% end %>
+			 <div id="messages">
+				<ul class="list-group list-group-flush">
+				<% @messages.each do |message| %>			
+					<li class="list-group-item list-group-item-action handy">
+						<%= link_to user_messages_path(message), class: "text-dark" do %>
+							<h2><%= message.subject %></h2><small class="text-success text-dark"> sent by <%= link_to message.user.nick, user_profile_path(message.user) %> on <%= message.message_sent_time %>, class: "text-danger" %></span> -> </small>
+						<% end %>
+				  </li>
+				</ul>
+			  <% end %>
+			</div>
 		</div>
 	</div>
 </div>
