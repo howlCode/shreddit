@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
 	before_action :authenticate_user!
+  before_action :set_user
 
 	def index
 		@messages = current_user.messages.all
@@ -36,6 +37,10 @@ class MessagesController < ApplicationController
 
   	def message_params
       params.require(:message).permit(:subject, :body, :user_id)
+    end
+
+    def set_user
+      @user = current_user
     end
 
 end
