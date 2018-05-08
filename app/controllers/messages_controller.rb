@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+	before_action :authenticate_user!
 	before_action :set_recipient, only: [:new, :create]
 
 	def new
