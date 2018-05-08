@@ -12,7 +12,13 @@
         <% end %>
       </li>
       <% end %>
+      <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to user_profile_path(current_user), class: "nav-link text-primary" do %>
+          Messages(<%= current_user.messages.count %>)
+        <% end %>
+      <% end %>
+      </li>
     </ul>
   </div>
 </nav>
-</br />

@@ -3,8 +3,9 @@ class User < ApplicationRecord
 	has_many :subshreddits
 	has_many :posts, dependent: :destroy
 	has_many :comments, dependent: :destroy
-  has_many :messages
 	has_one :profile, dependent: :destroy
+	has_many :messages, class_name: "Message", foreign_key: "recipient_id"
+  has_many :sent_messages, class_name: "Message", foreign_key: "sender_id"
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

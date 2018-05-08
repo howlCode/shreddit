@@ -4,9 +4,10 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users do
-  	resources :messages
   	resource :profile
+    resources :messages, only: [:new, :create]
 	end
+  resources :messages, only: [:index, :show, :destroy]
 
   resources :subshreddits
 

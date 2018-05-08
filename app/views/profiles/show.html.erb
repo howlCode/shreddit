@@ -1,16 +1,18 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm">
-			<% if !current_user %>
+			<% if @user != current_user %>
 				<h1 class="text-light"><%= @user.nick %>'s Posting History</h1>
 				<br >
-			<% elsif current_user %>
-				<h1 class="text-light">Your Profile</h1>
+			<% elsif @user == current_user %>
+				<h1 class="text-light">Your Posts</h1>
 				<br >
 			<% end %>
+			<% if @user != current_user %>
 			<ul class="list-inline">
-				<li class="list-inline-item"><%= link_to "Send a New Message", new_user_message_path, class: "btn btn-warning" %></li>
+				<li class="list-inline-item"><%= link_to "Send this user a Message", new_user_message_path(@user.id), class: "btn btn-warning" %></li>
 			</ul>
+			<% end %>
 				<ul class="list-group list-group-flush">
 				<% @user.posts.each do |post| %>
 					<li class="list-group-item list-group-item-action handy">
@@ -23,15 +25,21 @@
 				  </li>
 				</ul>
 			 <% end %>
+			 <br >
 			 <div id="messages">
+			 	<% if @user.messages.count != 0 && current_user %>
+			 	<h1 class="text-light">Your Messages</h1>
+				<br >
 				<ul class="list-group list-group-flush">
-				<% @messages.each do |message| %>			
+				<% @messages.each do |message| %>
+					<% sender = User.find(message.sender_id) %>
 					<li class="list-group-item list-group-item-action handy">
-						<%= link_to user_messages_path(message), class: "text-dark" do %>
-							<h2><%= message.subject %></h2><small class="text-success text-dark"> sent by <%= link_to message.user.nick, user_profile_path(message.user) %> on <%= message.message_sent_time %>, class: "text-danger" %></span> -> </small>
+						<%= link_to message_path(message), class: "text-dark" do %>
+							<h2><%= message.subject %></h2><small class="text-success text-dark"> sent by <%= link_to sender.nick, user_profile_path(sender) %> on <%= message.message_sent_time %></small>
 						<% end %>
 				  </li>
 				</ul>
+				<% end %>
 			  <% end %>
 			</div>
 		</div>

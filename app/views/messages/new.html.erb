@@ -1,6 +1,6 @@
 <div class="container">
 
-  <%= form_for [@user, @message] do |form| %>
+  <%= form_for [@recipient, @message] do |form| %>
 
     <% if @message.errors.any? %>
       <div id="error_explanation">
