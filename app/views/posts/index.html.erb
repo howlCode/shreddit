@@ -3,7 +3,7 @@
 		<div class="col-sm">
 			<ul class="list-inline">
 				<li class="list-inline-item"><%= link_to "Create a New Subreddit", new_subshreddit_path, class: "btn btn-warning" %></li>
-				<li class="list-inline-item"><%= link_to "Create Post", new_post_path, class: "btn btn-danger" %></li>
+				<li class="list-inline-item"><%= link_to "Create Post", new_post_path(:subshreddit_id => Subshreddit.first.id), class: "btn btn-danger" %></li>
 			</ul>
 			<div id="main-posts">
 				<ul class="list-group list-group-flush">

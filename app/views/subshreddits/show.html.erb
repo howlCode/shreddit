@@ -5,7 +5,7 @@
 			<br>
 			<ul class="list-inline">
 				<li class="list-inline-item"><%= link_to "Create a New Subreddit", new_subshreddit_path, class: "btn btn-danger" %></li>
-				<li class="list-inline-item"><%= link_to "Create Post", new_post_path(@subshreddit.id), class: "btn btn-danger" %></li>
+				<li class="list-inline-item"><%= link_to "Create Post", new_post_path(:subshreddit_id => @subshreddit.id), class: "btn btn-danger" %></li>
 			</ul>
 			<div id="main-posts">
 				<% @posts.each do |post| %>

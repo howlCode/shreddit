@@ -12,8 +12,8 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = current_user.posts.build
-    @subshreddit = Subshreddit.find(params[:format])
+    @post = current_user.posts.build   
+    @subshreddit = Subshreddit.find(params[:subshreddit_id])
   end
 
   def edit
