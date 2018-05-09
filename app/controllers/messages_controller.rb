@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
 	end
 
 	def show
-	  @message = current_user.messages.find(params[:id])
+	  @message = Message.find(params[:id])
 	  @sender = User.find(@message.sender_id)
 	end
 

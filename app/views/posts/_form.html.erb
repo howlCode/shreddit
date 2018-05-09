@@ -17,7 +17,7 @@
     <div class="form-group">
       <% if !@post.save %>
         <p class="text-light">Subshreddit for the post: </p>
-        <%= form.collection_select :subshreddit_id, @subshreddits, :id, :name, {},{class: "form-control"} %>  
+        <%= form.collection_select :subshreddit_id, @subshreddits, :id, :name, {:selected => @subshreddit.id},{class: "form-control"} %>  
       <% end %>
     </div>
 
