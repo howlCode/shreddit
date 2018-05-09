@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :load_subshreddit, only: [:show, :edit]
 
   def index
     @posts = Post.all
@@ -17,6 +16,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @subshreddit = Subshreddit.find(params[:subshreddit_id])
   end
 
   def create
@@ -47,10 +47,6 @@ class PostsController < ApplicationController
   private
     def set_post
       @post = Post.find(params[:id])
-    end
-
-    def load_subshreddit
-    	@subshreddit = Subshreddit.find(params[:id])
     end
 
     def post_params

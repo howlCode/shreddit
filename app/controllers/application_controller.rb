@@ -6,4 +6,5 @@ class ApplicationController < ActionController::Base
   	def load_subshreddits
   		@subshreddits = Subshreddit.all
   	end
+
 end

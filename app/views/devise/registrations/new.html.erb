@@ -7,13 +7,13 @@
         <%= devise_error_messages! %>
 
         <div class="form-group">
-          <%= f.label :email, class: "text-light" %><br />
+          <%= f.label :email_for_registration, class: "text-light" %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
         </div>
 
         <div class="form-group">
           <%= f.label :nickname, class: "text-light" %><br />
-          <small class="text-light">Your name as it will appear on posts and comments...</small>
+          <small class="text-light">Your name as it will appear on posts, comments, etc...</small>
           <%= f.text_field :nick, autofocus: true, autocomplete: "nickname", class: "form-control" %>
         </div>
 
