@@ -24,7 +24,8 @@ a:link {
 }
 
 .splash {
-  background-image: url('horns.jpg');
+  background-image: url('/images/horns.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
   border: 1px dotted grey;
 }
