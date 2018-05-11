@@ -5,9 +5,9 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  name: Test Name.
+  name: test
   user: valid
-  
+
 two:
   name: Test Name No. 2
   user: valid2

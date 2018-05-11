@@ -1,9 +1,6 @@
 class SubshredditsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:show]
   before_action :set_subshreddit, only: [:show, :edit, :update, :destroy]
-
-  def index
-  end
 
   def show
     @posts = @subshreddit.posts
@@ -20,7 +17,7 @@ class SubshredditsController < ApplicationController
     @subshreddit = current_user.subshreddits.build(subshreddit_params)
 
     if @subshreddit.save
-      redirect_to root_path
+      redirect_to @subshreddit
     else
       render 'new'
     end
@@ -28,7 +25,7 @@ class SubshredditsController < ApplicationController
 
   def update
     if @subshreddit.update(subshreddit_params)
-      render @subshreddit
+      redirect_to @subshreddit
     else
       render 'edit'
     end
@@ -36,6 +33,8 @@ class SubshredditsController < ApplicationController
 
   def destroy
     @subshreddit.destroy
+
+    redirect_to posts_path
   end
 
   private
