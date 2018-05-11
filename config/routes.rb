@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  resources :messages
+  resources :comments
+  resources :profiles
+  resources :posts
   root to: 'posts#index'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
