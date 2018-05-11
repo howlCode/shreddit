@@ -10,5 +10,8 @@ one:
   user: valid
   subshreddit: one
   
-two: {}
-# column: value
+two:
+  title: stuff
+  body: more stuff
+  user: valid2
+  subshreddit: one
