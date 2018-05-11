@@ -48,5 +48,5 @@ test:
   database: shreddit_testing
   username: postgres
   password: postgres
-  encoding: UTF8
+  encoding: SQL_ASCII
   pool: 5
