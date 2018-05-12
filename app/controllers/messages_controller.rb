@@ -2,6 +2,15 @@ class MessagesController < ApplicationController
 	before_action :authenticate_user!
 	before_action :set_recipient, only: [:new, :create]
 
+	def index
+	  @messages = current_user.messages.all
+	end
+
+	def show
+	  @message = Message.find(params[:id])
+	  @sender = User.find(@message.sender_id)
+	end
+
 	def new
 	  @message = current_user.messages.build
 	end
@@ -18,18 +27,10 @@ class MessagesController < ApplicationController
 		end
 	end
 
-	def index
-	  @messages = current_user.messages.all
-
-	end
-
 	def destroy
-	  @message = current_user.messages.destroy(params[:id])
-	end
+	  @message = Message.destroy(params[:id])
 
-	def show
-	  @message = Message.find(params[:id])
-	  @sender = User.find(@message.sender_id)
+	  redirect_to user_profile_path(current_user)
 	end
 
 	private

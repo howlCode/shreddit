@@ -14,16 +14,20 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create post" do
     sign_in users(:valid)
+
     assert_difference('Post.count') do
       post posts_url, params: { post: @post.attributes }
     end
+
     assert_redirected_to(Post.first)
   end
 
   test "should not create post if user is not signed in" do
+
     assert_difference('Post.count', 0) do
       post posts_url, params: { post: @post.attributes }
     end
+
     assert_redirected_to(new_user_session_path)
   end
 
@@ -39,6 +43,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy post" do
     sign_in users(:valid)
+    
     assert_difference('Post.count', -1) do
       delete post_url(@post)
     end
