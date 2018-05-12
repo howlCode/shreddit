@@ -1,21 +1,10 @@
 class CommentsController < ApplicationController
-	before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
-  before_action :load_post, only: [:index, :show, :new, :edit, :create]
-  before_action :load_subshreddit, only: [:show, :new, :edit, :create]
-
-  def index
-    @comments = @post.comments.all
-  end
-
-  def show
-  end
+	before_action :authenticate_user!
+  before_action :set_comment, only: [:destroy]
+  before_action :load_post, only: [:new, :create]
 
   def new
-    @comment = current_user.comments.build
-  end
-
-  def edit
+    @comment = current_user.comments.build(post_id: params[:post_id])
   end
 
   def create
@@ -24,14 +13,6 @@ class CommentsController < ApplicationController
       redirect_to @post
     else
       render 'new'
-    end
-  end
-
-  def update
-    if @comment.update(comment_params)
-      redirect_to @post
-    else
-      render 'edit'
     end
   end
 
@@ -50,12 +31,8 @@ class CommentsController < ApplicationController
     	@post = Post.find(params[:post_id])
     end
 
-    def load_subshreddit
-      @subshreddit = Subshreddit.where(id: params[:subshreddit_id])
-    end
-
     def comment_params
-      params.require(:comment).permit(:body).merge({post_id: params[:post_id]})
+      params.require(:comment).permit(:body, :post_id)
     end
 
 end
