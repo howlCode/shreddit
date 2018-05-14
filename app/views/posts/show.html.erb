@@ -4,7 +4,7 @@
 			<small> submitted <%= @post.posted_time %> by <%= link_to @post.user.nick, user_profile_path(@post.user) %></small>
 		</div>
 		<div class="card-body">
-			<h2 class="card-title"><%= @post.title %></h2>
+			<h2 class="card-title" id="single-post"><%= @post.title %></h2>
 			<blockquote class="blockquote">
 				<p class="mb-0 lead">"<%= @post.body %>"</p>
 			</blockquote>
